@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weqaya G6PD - وقاية انيميا الفول</title>
+  <!-- Google Fonts: Cairo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <!-- React 18 & Babel for instant zero-config browser execution -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  
+  <style>
+    :root {
+      --primary: #3B82F6;
+      --primary-dark: #2563EB;
+      --danger: #EF4444;
+      --danger-light: #FEE2E2;
+      --safe: #10B981;
+      --safe-light: #D1FAE5;
+      --bg: #F8FAFC;
+      --card-bg: #FFFFFF;
+      --text-main: #0F172A;
+      --text-muted: #64748B;
+      --border: #E2E8F0;
+      --radius: 14px;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Header */
+    header {
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+
+    .header-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #EF4444, #3B82F6);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 900;
+      font-size: 20px;
+      box-shadow: 0 4px 8px rgba(239, 68, 68, 0.25);
+    }
+
+    .brand-text h1 {
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--text-main);
+    }
+
+    .brand-text p {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Buttons */
+    .btn {
+      padding: 8px 16px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-main);
+    }
+    .btn-outline:hover {
+      background: #F1F5F9;
+    }
+
+    .btn-add {
+      background: #10B981;
+      color: white;
+    }
+    .btn-add:hover {
+      background: #059669;
+      transform: translateY(-1px);
+    }
+
+    .user-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #F1F5F9;
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* Hero Search */
+    .hero {
+      max-width: 800px;
+      margin: 28px auto 16px;
+      padding: 0 16px;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: 26px;
+      font-weight: 900;
+      margin-bottom: 8px;
+      color: #0F172A;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .search-bar-wrap {
+      position: relative;
+      margin-bottom: 16px;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 54px;
+      padding: 10px 48px 10px 20px;
+      border-radius: 27px;
+      border: 2px solid var(--border);
+      background: var(--card-bg);
+      font-size: 16px;
+      outline: none;
+      transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .search-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+      color: var(--text-muted);
+    }
+
+    .clear-btn {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      font-size: 16px;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+
+    /* Filter Pills */
+    .filter-pills {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .pill {
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .pill.active {
+      background: var(--text-main);
+      color: white;
+      border-color: var(--text-main);
+    }
+
+    /* Feed Grid */
+    .main-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 16px 40px;
+      flex: 1;
+      width: 100%;
+    }
+
+    .feed-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 16px;
+    }
+
+    /* Item Card */
+    .item-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 16px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .item-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      gap: 8px;
+    }
+
+    .item-name {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.3;
+    }
+
+    .category-badge {
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .category-badge.food {
+      background: #FEF3C7;
+      color: #92400E;
+    }
+
+    .category-badge.medication {
+      background: #E0E7FF;
+      color: #3730A3;
+    }
+
+    /* Progress Bar */
+    .progress-section {
+      margin-bottom: 16px;
+      background: #F8FAFC;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid #EEF2F6;
+    }
+
+    .progress-stats-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .stat-hemolysis {
+      color: var(--danger);
+    }
+
+    .stat-safe {
+      color: var(--safe);
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 12px;
+      background: #E2E8F0;
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .progress-fill-hemolysis {
+      background: var(--danger);
+      height: 100%;
+      transition: width 0.3s ease;
+    }
+
+    .progress-fill-safe {
+      background: var(--safe);
+      height: 100%;
+      transition: width 0.3s ease;
+    }
+
+    .voters-count {
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 6px;
+      font-weight: 600;
+    }
+
+    /* Vote Action Buttons */
+    .vote-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .btn-vote-danger {
+      background: var(--danger-light);
+      color: #B91C1C;
+      border: 1.5px solid #FCA5A5;
+      padding: 8px 10px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      transition: all 0.15s;
+    }
+
+    .btn-vote-danger:hover {
+      background: #FEE2E2;
+      border-color: var(--danger);
+    }
+
+    .btn-vote-danger.voted {
+      background: var(--danger);
+      color: white;
+      border-color: var(--danger);
+      box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.3);
+    }
+
+    .btn-vote-safe {
+      background: var(--safe-light);
+      color: #065F46;
+      border: 1.5px solid #6EE7B7;
+      padding: 8px 10px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      transition: all 0.15s;
+    }
+
+    .btn-vote-safe:hover {
+      background: #D1FAE5;
+      border-color: var(--safe);
+    }
+
+    .btn-vote-safe.voted {
+      background: var(--safe);
+      color: white;
+      border-color: var(--safe);
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3);
+    }
+
+    /* Modals */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.55);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 100;
+      animation: fadeIn 0.15s ease-out;
+    }
+
+    .modal-box {
+      background: white;
+      width: 100%;
+      max-width: 440px;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      background: #F1F5F9;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+    }
+
+    .modal-title {
+      font-size: 20px;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .modal-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #334155;
+    }
+
+    .form-input, .form-select {
+      width: 100%;
+      height: 44px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      padding: 0 14px;
+      font-size: 14px;
+      outline: none;
+      background: #F8FAFC;
+    }
+
+    .form-input:focus, .form-select:focus {
+      border-color: var(--primary);
+      background: #fff;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 40px 16px;
+      color: var(--text-muted);
+    }
+
+    .empty-state span {
+      font-size: 40px;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* Footer */
+    footer {
+      background: var(--card-bg);
+      border-top: 1px solid var(--border);
+      padding: 16px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    // Default Seed Data (أشهر أكلات وأدوية السوق المصري)
+    const INITIAL_ITEMS = [
+      { id: 1, name: 'طعمية / فلافل سخنة', category: 'food', hemolysis_votes: 1391, safe_votes: 29, total_votes: 1420 },
+      { id: 2, name: 'فول مدمس بالزيت والحار', category: 'food', hemolysis_votes: 1871, safe_votes: 19, total_votes: 1890 },
+      { id: 3, name: 'لانشون حلواني إخوان بقري', category: 'food', hemolysis_votes: 299, safe_votes: 116, total_votes: 415 },
+      { id: 4, name: 'أقراص ريفو 320 مجم (أسبيرين أخضر)', category: 'medication', hemolysis_votes: 572, safe_votes: 78, total_votes: 650 },
+      { id: 5, name: 'أقراص سبتازول / ستريم (سلفا)', category: 'medication', hemolysis_votes: 812, safe_votes: 8, total_votes: 820 },
+      { id: 6, name: 'بسكويت ويفر كتاكيتو', category: 'food', hemolysis_votes: 150, safe_votes: 80, total_votes: 230 },
+      { id: 7, name: 'أقراص بنادول أزرق (باراسيتامول)', category: 'medication', hemolysis_votes: 31, safe_votes: 1509, total_votes: 1540 },
+      { id: 8, name: 'شيبسي بطعم الجبنة المتبلة', category: 'food', hemolysis_votes: 124, safe_votes: 186, total_votes: 310 },
+      { id: 9, name: 'فيتامين سي فوار 1000 مجم (جرعات عالية)', category: 'medication', hemolysis_votes: 394, safe_votes: 86, total_votes: 480 },
+      { id: 10, name: 'حمص الشام (حلبسة)', category: 'food', hemolysis_votes: 34, safe_votes: 306, total_votes: 340 },
+      { id: 11, name: 'شوكولاتة كادبوري بابلي', category: 'food', hemolysis_votes: 45, safe_votes: 135, total_votes: 180 },
+      { id: 12, name: 'كتافلام 50 مجم أقراص', category: 'medication', hemolysis_votes: 21, safe_votes: 389, total_votes: 410 }
+    ];
+
+    function App() {
+      // 1. Database State in LocalStorage
+      const [items, setItems] = useState(() => {
+        const saved = localStorage.getItem('weqaya_items');
+        return saved ? JSON.parse(saved) : INITIAL_ITEMS;
+      });
+
+      const [currentUser, setCurrentUser] = useState(() => {
+        const saved = localStorage.getItem('weqaya_current_user');
+        return saved ? JSON.parse(saved) : null;
+      });
+
+      const [userVotes, setUserVotes] = useState(() => {
+        const saved = localStorage.getItem('weqaya_votes');
+        return saved ? JSON.parse(saved) : {}; // { "userId_itemId": "hemolysis" | "safe" }
+      });
+
+      // 2. UI State
+      const [searchQuery, setSearchQuery] = useState('');
+      const [categoryFilter, setCategoryFilter] = useState('all'); // all | food | medication | danger | safe
+      const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+      const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+      const [pendingVote, setPendingVote] = useState(null); // { itemId, voteType }
+
+      // Auth Form
+      const [authMode, setAuthMode] = useState('login'); // login | register
+      const [authName, setAuthName] = useState('');
+      const [authPhoneOrEmail, setAuthPhoneOrEmail] = useState('');
+      const [authPassword, setAuthPassword] = useState('');
+      const [authIsDoctor, setAuthIsDoctor] = useState(false);
+
+      // Add Item Form
+      const [newItemName, setNewItemName] = useState('');
+      const [newItemCategory, setNewItemCategory] = useState('food');
+
+      // Persistence
+      useEffect(() => {
+        localStorage.setItem('weqaya_items', JSON.stringify(items));
+      }, [items]);
+
+      useEffect(() => {
+        localStorage.setItem('weqaya_votes', JSON.stringify(userVotes));
+      }, [userVotes]);
+
+      useEffect(() => {
+        if (currentUser) {
+          localStorage.setItem('weqaya_current_user', JSON.stringify(currentUser));
+        } else {
+          localStorage.removeItem('weqaya_current_user');
+        }
+      }, [currentUser]);
+
+      // Voting Logic with Single Vote Constraint (user_id, item_id)
+      const handleVote = (itemId, voteType) => {
+        if (!currentUser) {
+          setPendingVote({ itemId, voteType });
+          setIsAuthModalOpen(true);
+          return;
+        }
+
+        const voteKey = `${currentUser.id}_${itemId}`;
+        const previousVote = userVotes[voteKey];
+
+        // If clicking the same vote again, ignore or inform
+        if (previousVote === voteType) {
+          alert('لقد سجلت هذا التصويت بالفعل لهذا الصنف.');
+          return;
+        }
+
+        setItems(prevItems =>
+          prevItems.map(item => {
+            if (item.id === itemId) {
+              let hVotes = item.hemolysis_votes;
+              let sVotes = item.safe_votes;
+              let tVotes = item.total_votes;
+
+              if (previousVote === 'hemolysis') {
+                hVotes -= 1;
+              } else if (previousVote === 'safe') {
+                sVotes -= 1;
+              } else {
+                tVotes += 1; // new vote
+              }
+
+              if (voteType === 'hemolysis') {
+                hVotes += 1;
+              } else {
+                sVotes += 1;
+              }
+
+              return {
+                ...item,
+                hemolysis_votes: hVotes,
+                safe_votes: sVotes,
+                total_votes: tVotes
+              };
+            }
+            return item;
+          })
+        );
+
+        setUserVotes(prev => ({ ...prev, [voteKey]: voteType }));
+      };
+
+      // Auth Submit
+      const handleAuthSubmit = (e) => {
+        e.preventDefault();
+        if (!authPhoneOrEmail.trim() || !authPassword.trim()) {
+          alert('برجاء ملء جميع الحقول المطلوبة');
+          return;
+        }
+
+        const user = {
+          id: Date.now(),
+          name: authMode === 'register' ? (authName || 'مستخدم جديد') : authPhoneOrEmail.split('@')[0],
+          emailOrPhone: authPhoneOrEmail,
+          isDoctor: authIsDoctor
+        };
+
+        setCurrentUser(user);
+        setIsAuthModalOpen(false);
+
+        // If there was a pending vote click, execute it now
+        if (pendingVote) {
+          const voteKey = `${user.id}_${pendingVote.itemId}`;
+          setItems(prev =>
+            prev.map(item => {
+              if (item.id === pendingVote.itemId) {
+                return {
+                  ...item,
+                  hemolysis_votes: pendingVote.voteType === 'hemolysis' ? item.hemolysis_votes + 1 : item.hemolysis_votes,
+                  safe_votes: pendingVote.voteType === 'safe' ? item.safe_votes + 1 : item.safe_votes,
+                  total_votes: item.total_votes + 1
+                };
+              }
+              return item;
+            })
+          );
+          setUserVotes(prev => ({ ...prev, [voteKey]: pendingVote.voteType }));
+          setPendingVote(null);
+        }
+      };
+
+      // Add New Item
+      const handleAddItem = (e) => {
+        e.preventDefault();
+        if (!newItemName.trim()) {
+          alert('يرجى كتابة اسم الصنف التجاري');
+          return;
+        }
+
+        const newItem = {
+          id: Date.now(),
+          name: newItemName.trim(),
+          category: newItemCategory,
+          hemolysis_votes: 0,
+          safe_votes: 0,
+          total_votes: 0
+        };
+
+        setItems([newItem, ...items]);
+        setNewItemName('');
+        setIsAddModalOpen(false);
+      };
+
+      // Filtered items
+      const filteredItems = items.filter(item => {
+        const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
+        if (!matchesSearch) return false;
+
+        if (categoryFilter === 'food') return item.category === 'food';
+        if (categoryFilter === 'medication') return item.category === 'medication';
+        if (categoryFilter === 'danger') {
+          const hPct = item.total_votes > 0 ? (item.hemolysis_votes / item.total_votes) * 100 : 0;
+          return hPct >= 50;
+        }
+        if (categoryFilter === 'safe') {
+          const sPct = item.total_votes > 0 ? (item.safe_votes / item.total_votes) * 100 : 0;
+          return sPct > 50;
+        }
+        return true;
+      });
+
+      return (
+        <div>
+          {/* Header */}
+          <header>
+            <div className="header-container">
+              <a href="#" className="brand">
+                <div className="brand-logo">و</div>
+                <div className="brand-text">
+                  <h1>وقاية | Weqaya G6PD</h1>
+                  <p>دليل أنيميا الفول السريع</p>
+                </div>
+              </a>
+
+              <div className="header-actions">
+                {currentUser ? (
+                  <>
+                    <div className="user-badge">
+                      <span>👤 {currentUser.name} {currentUser.isDoctor && '🩺 (طبيب)'}</span>
+                    </div>
+                    <button className="btn btn-add" onClick={() => setIsAddModalOpen(true)}>
+                      ➕ أضف أكلة أو دواء
+                    </button>
+                    <button className="btn btn-outline" onClick={() => setCurrentUser(null)} title="تسجيل خروج">
+                      خروج
+                    </button>
+                  </>
+                ) : (
+                  <button className="btn btn-primary" onClick={() => { setPendingVote(null); setIsAuthModalOpen(true); }}>
+                    تسجيل الدخول / حساب جديد
+                  </button>
+                )}
+              </div>
+            </div>
+          </header>
+
+          {/* Hero Section with Search */}
+          <section className="hero">
+            <h2 className="hero-title">هل الأكلة دي بتعمل تكسير للدم؟</h2>
+            <p className="hero-subtitle">ابحث باسم الأكلة أو الدواء التجاري الشائع وشوف تجارب وتقييم الناس فوراً</p>
+
+            <div className="search-bar-wrap">
+              <span className="search-icon">🔍</span>
+              <input
+                type="text"
+                className="search-input"
+                placeholder="اكتب اسم الأكلة أو الدواء (مثلاً: لانشون حلواني، طعمية، ريفو، كتاكيتو)..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+              {searchQuery && (
+                <button className="clear-btn" onClick={() => setSearchQuery('')}>✕</button>
+              )}
+            </div>
+
+            {/* Quick Filter Pills */}
+            <div className="filter-pills">
+              <button className={`pill ${categoryFilter === 'all' ? 'active' : ''}`} onClick={() => setCategoryFilter('all')}>
+                الكل ({items.length})
+              </button>
+              <button className={`pill ${categoryFilter === 'food' ? 'active' : ''}`} onClick={() => setCategoryFilter('food')}>
+                أكلات 🍔
+              </button>
+              <button className={`pill ${categoryFilter === 'medication' ? 'active' : ''}`} onClick={() => setCategoryFilter('medication')}>
+                أدوية 💊
+              </button>
+              <button className={`pill ${categoryFilter === 'danger' ? 'active' : ''}`} onClick={() => setCategoryFilter('danger')}>
+                تكسير عالي ⚠️
+              </button>
+              <button className={`pill ${categoryFilter === 'safe' ? 'active' : ''}`} onClick={() => setCategoryFilter('safe')}>
+                آمنة شائعة ✅
+              </button>
+            </div>
+          </section>
+
+          {/* Main Feed */}
+          <main className="main-container">
+            {filteredItems.length === 0 ? (
+              <div className="empty-state">
+                <span>🔍</span>
+                <h3>لم نجد أي نتائج لـ "{searchQuery}"</h3>
+                <p>تقدر تضيف الصنف ده دلوقتي بنفسك والناس تبدأ تفوت عليه!</p>
+                <button
+                  className="btn btn-primary"
+                  style={{ marginTop: 16 }}
+                  onClick={() => {
+                    setNewItemName(searchQuery);
+                    setIsAddModalOpen(true);
+                  }}
+                >
+                  ➕ إضافة "{searchQuery}" كصنف جديد
+                </button>
+              </div>
+            ) : (
+              <div className="feed-grid">
+                {filteredItems.map(item => {
+                  const hPct = item.total_votes > 0 ? Math.round((item.hemolysis_votes / item.total_votes) * 100) : 0;
+                  const sPct = item.total_votes > 0 ? Math.round((item.safe_votes / item.total_votes) * 100) : 0;
+                  const userVote = currentUser ? userVotes[`${currentUser.id}_${item.id}`] : null;
+
+                  return (
+                    <div key={item.id} className="item-card">
+                      <div>
+                        <div className="item-header">
+                          <h3 className="item-name">{item.name}</h3>
+                          <span className={`category-badge ${item.category}`}>
+                            {item.category === 'food' ? 'أكل 🍔' : 'دواء 💊'}
+                          </span>
+                        </div>
+
+                        {/* Dual Progress Bar */}
+                        <div className="progress-section">
+                          <div className="progress-stats-labels">
+                            <span className="stat-hemolysis">
+                              {hPct}% حصل تكسير
+                            </span>
+                            <span className="stat-safe">
+                              {sPct}% آمن معي
+                            </span>
+                          </div>
+
+                          <div className="progress-track">
+                            {item.total_votes === 0 ? (
+                              <div style={{ width: '100%', height: '100%', background: '#CBD5E1' }}></div>
+                            ) : (
+                              <>
+                                <div className="progress-fill-hemolysis" style={{ width: `${hPct}%` }}></div>
+                                <div className="progress-fill-safe" style={{ width: `${sPct}%` }}></div>
+                              </>
+                            )}
+                          </div>
+
+                          <div className="voters-count">
+                            {item.total_votes === 0 ? 'لا توجد أصوات بعد - كن أول من يصوّت' : `إجمالي الأصوات: ${item.total_votes.toLocaleString('ar-EG')} مشارك`}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Vote Buttons */}
+                      <div className="vote-buttons">
+                        <button
+                          className={`btn-vote-danger ${userVote === 'hemolysis' ? 'voted' : ''}`}
+                          onClick={() => handleVote(item.id, 'hemolysis')}
+                        >
+                          حصل تكسير ⚠️
+                        </button>
+                        <button
+                          className={`btn-vote-safe ${userVote === 'safe' ? 'voted' : ''}`}
+                          onClick={() => handleVote(item.id, 'safe')}
+                        >
+                          آمن معي ✅
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </main>
+
+          {/* Footer */}
+          <footer>
+            <p>تنبيه: منصة (وقاية) مبنية على تجارب وتصويتات مجتمعية استرشادية، ولا تغني عن استشارة الطبيب المختص.</p>
+          </footer>
+
+          {/* Auth Modal (Login / Register) */}
+          {isAuthModalOpen && (
+            <div className="modal-overlay" onClick={() => setIsAuthModalOpen(false)}>
+              <div className="modal-box" onClick={e => e.stopPropagation()}>
+                <button className="modal-close" onClick={() => setIsAuthModalOpen(false)}>✕</button>
+                <h3 className="modal-title">
+                  {authMode === 'login' ? 'تسجيل الدخول' : 'إنشاء حساب جديد'}
+                </h3>
+                <p className="modal-subtitle">
+                  لازم تعمل تسجيل دخول عشان تصوت وتشارك تجربتك وتفيد بقية الأهالي!
+                </p>
+
+                <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
+                  <button
+                    className={`btn ${authMode === 'login' ? 'btn-primary' : 'btn-outline'}`}
+                    style={{ flex: 1 }}
+                    onClick={() => setAuthMode('login')}
+                  >
+                    دخول
+                  </button>
+                  <button
+                    className={`btn ${authMode === 'register' ? 'btn-primary' : 'btn-outline'}`}
+                    style={{ flex: 1 }}
+                    onClick={() => setAuthMode('register')}
+                  >
+                    حساب جديد
+                  </button>
+                </div>
+
+                <form onSubmit={handleAuthSubmit}>
+                  {authMode === 'register' && (
+                    <div className="form-group">
+                      <label className="form-label">الاسم أو اللقب</label>
+                      <input
+                        type="text"
+                        className="form-input"
+                        placeholder="مثال: أم أحمد"
+                        value={authName}
+                        onChange={e => setAuthName(e.target.value)}
+                        required
+                      />
+                    </div>
+                  )}
+
+                  <div className="form-group">
+                    <label className="form-label">رقم الموبايل أو البريد الإلكتروني</label>
+                    <input
+                      type="text"
+                      className="form-input"
+                      placeholder="010XXXXXXXX أو بريدك الإلكتروني"
+                      value={authPhoneOrEmail}
+                      onChange={e => setAuthPhoneOrEmail(e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label">كلمة المرور</label>
+                    <input
+                      type="password"
+                      className="form-input"
+                      placeholder="••••••••"
+                      value={authPassword}
+                      onChange={e => setAuthPassword(e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  {authMode === 'register' && (
+                    <div className="form-group" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                      <input
+                        type="checkbox"
+                        id="isDoc"
+                        checked={authIsDoctor}
+                        onChange={e => setAuthIsDoctor(e.target.checked)}
+                      />
+                      <label htmlFor="isDoc" style={{ fontSize: 13, cursor: 'pointer' }}>
+                        أنا طبيب / صيدلي أخصائي
+                      </label>
+                    </div>
+                  )}
+
+                  <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: 8 }}>
+                    {authMode === 'login' ? 'تسجيل الدخول والتصويت' : 'إنشاء الحساب والتصويت'}
+                  </button>
+                </form>
+              </div>
+            </div>
+          )}
+
+          {/* Add Item Modal */}
+          {isAddModalOpen && (
+            <div className="modal-overlay" onClick={() => setIsAddModalOpen(false)}>
+              <div className="modal-box" onClick={e => e.stopPropagation()}>
+                <button className="modal-close" onClick={() => setIsAddModalOpen(false)}>✕</button>
+                <h3 className="modal-title">➕ أضف أكلة أو دواء جديد</h3>
+                <p className="modal-subtitle">اكتب اسم الصنف الشائع في السوق علشان الناس تقدر تسيرش عليه وتصوت</p>
+
+                <form onSubmit={handleAddItem}>
+                  <div className="form-group">
+                    <label className="form-label">الاسم التجاري أو الشائع</label>
+                    <input
+                      type="text"
+                      className="form-input"
+                      placeholder="مثال: شيبسي بالليمون، كفتة مصنعة، بارامول..."
+                      value={newItemName}
+                      onChange={e => setNewItemName(e.target.value)}
+                      required
+                      autoFocus
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label">القسم</label>
+                    <select
+                      className="form-select"
+                      value={newItemCategory}
+                      onChange={e => setNewItemCategory(e.target.value)}
+                    >
+                      <option value="food">أكل وسناكس 🍔</option>
+                      <option value="medication">دواء ومسكن 💊</option>
+                    </select>
+                  </div>
+
+                  <button type="submit" className="btn btn-add" style={{ width: '100%', marginTop: 8 }}>
+                    إضافة للقائمة فوراً
+                  </button>
+                </form>
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

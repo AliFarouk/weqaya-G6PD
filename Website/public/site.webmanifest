@@ -1,0 +1,25 @@
+{
+  "name": "وقاية G6PD - دليل أنيميا الفول",
+  "short_name": "وقاية G6PD",
+  "description": "دليلك السريع لأمان أكلات وأدوية أنيميا الفول في السوق المصري",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F8F9FE",
+  "theme_color": "#5E72E4",
+  "dir": "rtl",
+  "lang": "ar",
+  "icons": [
+    {
+      "src": "/brand/App Icon Favicon 512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

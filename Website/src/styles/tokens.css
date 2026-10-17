@@ -1,0 +1,30 @@
+:root {
+  /* Brand System Colors */
+  --brand-primary: #5E72E4;
+  --brand-text: #3C51C2;
+  --safe-green: #2DCE89;
+  --safe-text: #139E69;
+  --danger-red: #F5365C;
+  --danger-text: #D81B43;
+  --caution-orange: #FB6340;
+  --text-title: #32325D;
+  --text-body: #525F7F;
+  --text-muted: #8898AA;
+  --canvas-bg: #F8F9FE;
+  --canvas-gradient: linear-gradient(135deg, #F8F9FE 0%, #EDF2F9 100%);
+  --card-bg: #FFFFFF;
+  --card-border: rgba(136, 152, 170, 0.15);
+
+  /* Shadows / Depth (Levels 0, 1, 2, Critical) */
+  --shadow-level-0: none;
+  --shadow-level-1: 0 4px 18px -2px rgba(50, 50, 93, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+  --shadow-level-2: 0 10px 30px -5px rgba(50, 50, 93, 0.12), 0 4px 10px -2px rgba(0, 0, 0, 0.06);
+  --shadow-critical: 0 8px 24px -4px rgba(245, 54, 92, 0.22);
+
+  /* Radii */
+  --radius-button: 12px;
+  --radius-input: 12px;
+  --radius-card: 16px;
+  --radius-modal: 16px;
+  --radius-pill: 9999px;
+}

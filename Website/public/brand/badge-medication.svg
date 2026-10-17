@@ -1,0 +1,25 @@
+<svg role="img" aria-label="Medication placeholder badge: a medicine bottle and two capsules" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg" style="display: block">
+<circle cx="200" cy="200" r="188" fill="#EEF1F6"></circle>
+<circle cx="200" cy="200" r="170" fill="none" stroke="#5E72E4" stroke-opacity="0.12" stroke-width="3" stroke-dasharray="2 12" stroke-linecap="round"></circle>
+<g transform="translate(0 -14)" stroke="#5E72E4" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+<ellipse cx="206" cy="336" rx="110" ry="12" fill="#5E72E4" fill-opacity="0.1" stroke="none"></ellipse>
+<rect x="108" y="170" width="106" height="158" rx="20" fill="#E4E8FB"></rect>
+<rect x="122" y="140" width="78" height="34" rx="6" fill="#E4E8FB"></rect>
+<rect x="114" y="106" width="94" height="38" rx="12" fill="#5E72E4"></rect>
+<rect x="108" y="212" width="106" height="82" rx="8" fill="#FFFFFF"></rect>
+<rect x="148" y="236" width="26" height="8" rx="3" transform="translate(0 6)" fill="#F5365C" stroke="none"></rect>
+<rect x="157" y="237" width="8" height="26" rx="3" transform="translate(0 6)" fill="#F5365C" stroke="none"></rect>
+<g transform="translate(266 244) rotate(-32)">
+<path d="M-20 -17 L0 -17 L0 17 L-20 17 A17 17 0 0 1 -20 -17 Z" fill="#F5365C" stroke="none"></path>
+<path d="M0 -17 L20 -17 A17 17 0 0 1 20 17 L0 17 Z" fill="#FFFFFF" stroke="none"></path>
+<rect x="-37" y="-17" width="74" height="34" rx="17" fill="none"></rect>
+<path d="M0 -17 L0 17" fill="none"></path>
+</g>
+<g transform="translate(262 304) rotate(22)">
+<path d="M-18 -15 L0 -15 L0 15 L-18 15 A15 15 0 0 1 -18 -15 Z" fill="#5E72E4" stroke="none"></path>
+<path d="M0 -15 L18 -15 A15 15 0 0 1 18 15 L0 15 Z" fill="#FFFFFF" stroke="none"></path>
+<rect x="-33" y="-15" width="66" height="30" rx="15" fill="none"></rect>
+<path d="M0 -15 L0 15" fill="none"></path>
+</g>
+</g>
+</svg>

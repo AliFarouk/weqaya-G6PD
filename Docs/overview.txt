@@ -1,0 +1,54 @@
+================================================================================
+مشروع وقاية لأنيميا الفول - Weqaya G6PD (النسخة المبسطة MVP)
+================================================================================
+
+1. نظرة عامة على المشروع (Project Purpose):
+----------------------------------------
+دليل رقمي مجتمعي فائق السرعة والبساطة لمرضى أنيميا الفول (G6PD) في مصر والوطن العربي.
+يقدم المنصة إجابة فورية عن أمان الأغذية والأدوية بالأسماء التجارية المتداولة في السوق المصري
+عبر التصويت المجتمعي بنقرة واحدة [حصل تكسير ⚠️] أو [آمن معي ✅] مع شريط أمان ملون مزدوج.
+
+تم استبعاد كافة التعقيدات الإدارية (لا نزاعات طبية، لا لجان تحكيم، لا تدقيق نقابي إجباري).
+
+2. هيكل المجلدات (Folder Structure):
+-----------------------------------
+Weqaya G6PD/
+├── Docs/                           # الوثائق والمواصفات الفنية الكاملة
+│   ├── 01_Product_Requirements_Document.md
+│   ├── 02_System_Architecture.md
+│   ├── 03_Database_Schema.md
+│   ├── 04_API_Specification.md
+│   ├── 05_UI_UX_Functional_Requirements.md
+│   ├── 06_Google_Stitch_Design_Prompts.md
+│   ├── 07_Workflows_and_RBAC.md
+│   └── overview.txt
+├── Website/                        # الواجهة الأمامية والـ API الخفيف (React / Next.js)
+├── Mobile APP/                     # تطبيق الموبايل المولد عبر Capacitor
+└── Google Stitch Design/           # شاشات ومخرجات تصميم ستيتش
+
+3. قاعدة البيانات المبسطة (Lean 3-Table DB):
+-----------------------------------------
+- users  : (id, name, identifier [email/phone], password_hash, is_doctor)
+- items  : (id, name, category, hemolysis_votes, safe_votes, total_votes, created_by)
+- votes  : (id, user_id, item_id, vote_type: 'hemolysis' | 'safe', UNIQUE(user_id, item_id))
+
+4. كيفية التشغيل (How to Run):
+-----------------------------
+أ) تشغيل واجهة الويب (Website):
+   cd "C:\xampp2\htdocs\Weqaya G6PD\Website"
+   npm install
+   npm run dev
+   -> التطبيق متاح على: http://localhost:3000
+
+ب) تحزيم تطبيق الموبايل (Capacitor Mobile APP):
+   cd "C:\xampp2\htdocs\Weqaya G6PD\Website"
+   npx cap sync
+   npx cap open android
+
+5. المبادئ الأساسية للتطوير:
+--------------------------
+- سرعة تحميل وبحث خيالية (<100ms).
+- دعم كامل للعربية من اليمين لليسار (RTL Native).
+- واجهة متجاوبة بتصميم Mobile-First.
+- تصويت سريع للزائر عبر نافذة تسجيل في 10 ثوانٍ مع تنفيذ تلقائي للصوت فور التسجيل.
+================================================================================

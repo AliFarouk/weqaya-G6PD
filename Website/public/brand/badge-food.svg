@@ -1,0 +1,19 @@
+<svg role="img" aria-label="Food placeholder badge: milk carton, bread and an apple" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg" style="display: block">
+<circle cx="200" cy="200" r="188" fill="#FFF6E5"></circle>
+<circle cx="200" cy="200" r="170" fill="none" stroke="#5E72E4" stroke-opacity="0.12" stroke-width="3" stroke-dasharray="2 12" stroke-linecap="round"></circle>
+<g transform="translate(0 -20)" stroke="#5E72E4" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+<ellipse cx="200" cy="338" rx="108" ry="12" fill="#5E72E4" fill-opacity="0.1" stroke="none"></ellipse>
+<path d="M104 160 L104 296 L190 296 L190 160 Z" fill="#FFFFFF"></path>
+<path d="M104 160 L124 126 L170 126 L190 160 Z" fill="#E4E8FB"></path>
+<path d="M124 126 L124 110 L170 110 L170 126" fill="#FFFFFF"></path>
+<rect x="104" y="196" width="86" height="56" fill="#C9F3E1" stroke-width="0"></rect>
+<path d="M104 196 L190 196 M104 252 L190 252" fill="none"></path>
+<path d="M147 208 C147 208 134 224 134 232 A13 13 0 0 0 160 232 C160 224 147 208 147 208 Z" fill="#FFFFFF"></path>
+<path d="M190 296 L190 238 C190 206 214 184 246 184 C278 184 302 206 302 238 L302 296 Z" fill="#FFE8C2"></path>
+<path d="M226 200 L238 218 M250 196 L262 214 M274 204 L284 220" fill="none"></path>
+<path d="M170 296 C170 262 192 246 216 252 C226 248 236 248 246 252 C270 246 292 262 292 296 C292 322 270 336 246 330 C236 334 226 334 216 330 C192 336 170 322 170 296 Z" transform="translate(0 6)" fill="#BDF0DA"></path>
+<path d="M231 256 C231 248 234 242 240 238" fill="none"></path>
+<path d="M240 246 C248 232 262 232 268 238 C264 252 250 254 240 246 Z" fill="#2DCE89"></path>
+<path d="M196 288 C196 280 200 274 206 272" fill="none" stroke-width="5" stroke="#FFFFFF" stroke-opacity="0.9"></path>
+</g>
+</svg>
