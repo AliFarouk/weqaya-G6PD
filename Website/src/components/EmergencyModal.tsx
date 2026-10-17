@@ -19,15 +19,21 @@ export default function EmergencyModal({ isOpen, onClose }: EmergencyModalProps)
       onClick={onClose}
     >
       <div
-        className="w-full sm:max-w-lg bg-white rounded-t-2xl sm:rounded-2xl p-6 shadow-2xl max-h-[90vh] overflow-y-auto text-start"
+        className="w-full sm:max-w-xl bg-white rounded-t-2xl sm:rounded-2xl p-5 sm:p-6 shadow-2xl max-h-[92vh] overflow-y-auto text-start"
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Header */}
         <div className="flex items-center justify-between pb-3 border-b border-neutral-muted/20">
           <div className="flex items-center gap-2 text-danger">
-            <span className="text-2xl">🚨</span>
-            <h2 id="emergency-modal-title" className="font-cairo font-bold text-lg text-danger">
-              علامات نوبة التكسير الحادة والإجراء الفوري
-            </h2>
+            <span className="text-2xl animate-pulse">🚨</span>
+            <div>
+              <h2 id="emergency-modal-title" className="font-cairo font-bold text-lg sm:text-xl text-danger leading-tight">
+                دليل نوبة التكسير الحادة والإجراء الفوري
+              </h2>
+              <span className="text-[11px] text-neutral-muted font-bold block">
+                بروتوكول الطوارئ الطبي المعتمد لمرضى أنيميا الفول في مصر
+              </span>
+            </div>
           </div>
           <button
             type="button"
@@ -39,46 +45,90 @@ export default function EmergencyModal({ isOpen, onClose }: EmergencyModalProps)
           </button>
         </div>
 
-        <div className="mt-4 space-y-4 text-sm text-neutral-body leading-relaxed">
-          <div className="p-3 bg-danger-light rounded-xl border border-danger/20 text-danger-text font-medium">
-            ⚠️ هذه إرشادات توعوية عامة لمساعدتك على التحرك السريع وليست بديلاً عن التشخيص الطبي العاجل.
+        <div className="mt-4 space-y-4 text-xs sm:text-sm text-neutral-body leading-relaxed">
+          {/* Timeline Callout */}
+          <div className="p-3 bg-brand-light/60 rounded-xl border border-brand/20 text-brand font-bold flex items-center gap-2">
+            <span className="text-lg shrink-0">⏱️</span>
+            <span>
+              <strong>توقيت ظهور الأعراض:</strong> قد تتأخر أعراض نوبة التكسير وتبدأ بالظهور بعد <strong>يوم إلى 3 أيام</strong> من تناول الفول أو الطعمية أو الدواء الممنوع.
+            </span>
           </div>
 
-          <div>
-            <h3 className="font-cairo font-bold text-neutral-title text-base mb-2">
-              1. العلامات التحذيرية الثلاث الحرجة (ظهور أي منها يستدعي الطوارئ):
+          {/* 1. Critical Symptoms */}
+          <div className="bg-danger-light/40 p-4 rounded-xl border border-danger/20 space-y-2">
+            <h3 className="font-cairo font-black text-danger text-sm sm:text-base flex items-center gap-1.5">
+              <span>⚠️</span>
+              <span>1. الأعراض التحذيرية الحرجة (توجه للمستشفى فوراً إذا لاحظت أي منها):</span>
             </h3>
-            <ul className="list-disc list-inside space-y-1.5 ps-2 text-neutral-title">
-              <li><strong>تغير لون البول:</strong> يصبح داكناً جداً يشبه الشاي المغلي أو الكولا.</li>
-              <li><strong>شحوب واصفرار مفاجئ:</strong> شحوب الوجه والشفتين واصفرار بياض العينين (يرقان).</li>
-              <li><strong>خمول وتسارع نبضات القلب:</strong> إجهاد شديد، نوم غير معتاد للطفل، وسرعة في التنفس.</li>
+            <ul className="list-disc list-inside space-y-1.5 ps-1 font-bold text-neutral-title">
+              <li>
+                <strong>تغير لون البول:</strong> يصبح داكناً جداً يشبه الشاي المغلي أو الكولا أو القهوة.
+              </li>
+              <li>
+                <strong>شحوب واصفرار مفاجئ:</strong> شحوب في الوجه والشفتين واصفرار بياض العينين والجلد (يرقان).
+              </li>
+              <li>
+                <strong>خمول وتسارع النبض:</strong> إجهاد شديد، نوم غير معتاد، دوار وغثيان، وسرعة في ضربات القلب وضيق في التنفس.
+              </li>
             </ul>
           </div>
 
-          <div>
-            <h3 className="font-cairo font-bold text-neutral-title text-base mb-2">
-              2. الخطوات الفورية المطلوبة:
+          {/* 2. Hospital Crisis Protocol */}
+          <div className="bg-neutral-canvas p-4 rounded-xl border border-neutral-muted/20 space-y-2.5">
+            <h3 className="font-cairo font-black text-neutral-title text-sm sm:text-base flex items-center gap-1.5">
+              <span>🏥</span>
+              <span>2. بروتوكول المستشفى (ماذا يحدث عند حدوث التكسير؟):</span>
             </h3>
-            <ol className="list-decimal list-inside space-y-1.5 ps-2">
-              <li>التوجه فوراً لأقرب طوارئ مستشفى أطفال أو بنك دم لإجراء قياس عاجل لنسبة الهيموجلوبين.</li>
-              <li>إبلاغ الطبيب فور وصولك: «الطفل مريض أنيميا فول G6PD ويشتبه في حدوث تكسير حاد».</li>
-              <li>إيقاف أي دواء جديد تم تناوله مؤخراً (خاصة الأسبرين، السلفا، أو المسكنات).</li>
-            </ol>
+            <p className="text-xs text-neutral-muted">
+              أول إجراء هو التوجه فوراً لأقرب طوارئ أطفال أو مستشفى عام لعمل تحليل هيموجلوبين فوري (CBC):
+            </p>
+            <div className="space-y-2">
+              <div className="p-2.5 bg-white rounded-lg border border-neutral-muted/20">
+                <span className="font-bold text-brand block mb-1">🔹 إذا كان التكسير بسيطاً:</span>
+                <span className="text-xs text-neutral-body leading-relaxed">
+                  لن يحتاج المريض لنقل دم، وسيصف له الطبيب <strong>حمض الفوليك (Folic Acid) وفيتامين B12</strong> لمساعدة النخاع على بناء خلايا الدم، مع الاهتمام بالتغذية الصحية والنوم المبكر وراحة تامة.
+                </span>
+              </div>
+              <div className="p-2.5 bg-white rounded-lg border border-danger/30">
+                <span className="font-bold text-danger block mb-1">🔻 إذا كان التكسير شديداً (حاداً):</span>
+                <span className="text-xs text-neutral-body leading-relaxed">
+                  يحتاج المصاب إلى <strong>نقل دم بأسرع وقت ممكن</strong> بالمستشفى لتعويض النقص الحاد في كرات الدم وحماية وظائف الكلى والأعضاء الحيوية.
+                </span>
+              </div>
+            </div>
+            <div className="flex items-center gap-2 text-xs font-bold text-emerald-800 bg-emerald-50 p-2.5 rounded-lg border border-emerald-200">
+              <span>🌱</span>
+              <span>
+                <strong>مدة التعافي:</strong> يحتاج الجسم عادة من <strong>8 إلى 14 يوماً</strong> لتعويض كرات الدم الحمراء والتعافي التام من النوبة.
+              </span>
+            </div>
           </div>
 
+          {/* 3. Nursing Mothers Warning */}
+          <div className="p-3.5 bg-amber-50 rounded-xl border border-amber-300 text-amber-900 text-xs sm:text-sm space-y-1">
+            <div className="font-black flex items-center gap-1.5 text-amber-950">
+              <span>🤱</span>
+              <span>تحذير حاسم للأمهات المرضعات في مصر:</span>
+            </div>
+            <p className="leading-relaxed">
+              مركبات الفول والطعمية والبقوليات وأدوية السلفا والأسبرين <strong>تنتقل للرضيع عبر حليب الأم</strong>. إذا كان طفلك الرضيع مصاباً بأنيميا الفول، فيجب عليكِ الامتناع التام عنها طوال فترة الرضاعة.
+            </p>
+          </div>
+
+          {/* Immediate Actions */}
           <div className="pt-2 flex flex-col sm:flex-row gap-2">
             <a
               href="tel:123"
-              className="touch-target flex-1 flex items-center justify-center gap-2 bg-danger text-white rounded-md font-bold py-3 hover:bg-danger-hover transition-colors shadow-md text-base"
+              className="touch-target flex-1 flex items-center justify-center gap-2 bg-danger text-white rounded-xl font-black py-3 hover:bg-danger-hover transition-colors shadow-md text-sm sm:text-base"
             >
               <span>📞 الاتصال بالإسعاف المصري (123)</span>
             </a>
             <button
               type="button"
               onClick={onClose}
-              className="touch-target px-5 py-3 rounded-md border border-neutral-muted/30 font-bold hover:bg-neutral-canvas text-neutral-title"
+              className="touch-target px-5 py-3 rounded-xl border border-neutral-muted/30 font-bold hover:bg-neutral-canvas text-neutral-title text-xs sm:text-sm"
             >
-              فهمت
+              فهمت الإرشادات
             </button>
           </div>
         </div>

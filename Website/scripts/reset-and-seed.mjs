@@ -98,54 +98,82 @@ for (const s of staff) {
   }
 }
 
-// 2. Group 1: الممنوعات المؤكدة طبياً (Confirmed Danger - 0 votes - is_confirmed_danger = 1)
+// 2. Group 1: الممنوعات المؤكدة طبياً في مصر (Confirmed Danger - is_confirmed_danger = 1)
 const confirmedDangerItems = [
-  { name: 'الفول البلدي', category: 'food', origin: 'home' },
-  { name: 'الفول المدمس', category: 'food', origin: 'restaurant' },
-  { name: 'الطعمية المصنوعة من الفول', category: 'food', origin: 'restaurant' },
-  { name: 'فول الصويا', category: 'food', origin: 'supermarket' },
-  { name: 'الحلبة', category: 'food', origin: 'home' },
-  { name: 'العدس', category: 'food', origin: 'home' },
-  { name: 'الحمص', category: 'food', origin: 'supermarket' },
-  { name: 'الفاصوليا', category: 'food', origin: 'home' },
-  { name: 'البسلة', category: 'food', origin: 'home' },
-  { name: 'الترمس', category: 'food', origin: 'supermarket' },
+  // --- أكلات وبقوليات مصرية ممنوعة قطعياً ---
+  { name: 'الفول البلدي المدمس', category: 'food', origin: 'restaurant' },
+  { name: 'الفول الحراتي (الأخضر)', category: 'food', origin: 'home' },
+  { name: 'الفول النابت', category: 'food', origin: 'home' },
+  { name: 'الطعمية المصرية (الفلافل)', category: 'food', origin: 'restaurant' },
+  { name: 'البصارة', category: 'food', origin: 'home' },
+  { name: 'الكشري المصري (عدس وحمص)', category: 'food', origin: 'restaurant' },
+  { name: 'حمص الشام (الحلبسة)', category: 'food', origin: 'restaurant' },
+  { name: 'الترمس البلدي والمستورد', category: 'food', origin: 'supermarket' },
+  { name: 'العدس الأصفر (شوربة وفتة)', category: 'food', origin: 'home' },
+  { name: 'عدس بجُبة (العدس البني)', category: 'food', origin: 'home' },
+  { name: 'الفاصوليا البيضاء الناشفة', category: 'food', origin: 'home' },
+  { name: 'البسلة الخضراء', category: 'food', origin: 'home' },
+  { name: 'اللوبيا الجافة', category: 'food', origin: 'home' },
   { name: 'الفول السوداني', category: 'food', origin: 'supermarket' },
+  { name: 'زبدة الفول السوداني', category: 'food', origin: 'supermarket' },
+  { name: 'الحلبة (مشروب وحلبة حصى)', category: 'food', origin: 'home' },
+  { name: 'حلويات المولد (السودانية والسمسمية والحمصية)', category: 'food', origin: 'supermarket' },
+  { name: 'فول الصويا ومنتجاته', category: 'food', origin: 'supermarket' },
+  { name: 'مادة الكبريتيت في المعلبات واللحوم المصنعة', category: 'food', origin: 'supermarket' },
+
+  // --- أدوية ممنوعة قطعياً متداولة بالصيدليات المصرية ---
+  { name: 'أسبوسيد أطفال (Aspocid)', category: 'medication', origin: 'pharmacy' },
+  { name: 'أسبجيك فريال أكياس (Aspégic Ferial)', category: 'medication', origin: 'pharmacy' },
+  { name: 'فيجاسكين لبوس (Vegaskine)', category: 'medication', origin: 'pharmacy' },
+  { name: 'ستربتوكين أقراص (Streptoquin)', category: 'medication', origin: 'pharmacy' },
+  { name: 'كابكت مركب (Kapect Compound)', category: 'medication', origin: 'pharmacy' },
+  { name: 'سلفوزنك شراب (Sulfozinc)', category: 'medication', origin: 'pharmacy' },
+  { name: 'سبترين أقراص وشراب (Septrin)', category: 'medication', origin: 'pharmacy' },
+  { name: 'ستريم شراب وأقراص (Sutrim)', category: 'medication', origin: 'pharmacy' },
+  { name: 'سيبتازول أقراص وشراب (Septazole)', category: 'medication', origin: 'pharmacy' },
+  { name: 'كوتريموكسازول (Co-trimoxazole)', category: 'medication', origin: 'pharmacy' },
+  { name: 'يوفامين ريتارد كبسول (Uvamine Retard)', category: 'medication', origin: 'pharmacy' },
+  { name: 'ماكروفيوران كبسول (Macrofuran)', category: 'medication', origin: 'pharmacy' },
+  { name: 'فيتاسيد ج فوار (Vitacid C Effervescent)', category: 'medication', origin: 'pharmacy' },
+  { name: 'سيبروفلوكساسين / سيبروباي (Ciprofloxacin)', category: 'medication', origin: 'pharmacy' },
+  { name: 'كلورامفينيكول قطرة وكبسول (Chloramphenicol)', category: 'medication', origin: 'pharmacy' },
+  { name: 'ريمكتان كبسول (Rimactane / Rifampicin)', category: 'medication', origin: 'pharmacy' },
+  { name: 'فينازوبيريدين (مسكن مجرى البول Phenazopyridine)', category: 'medication', origin: 'pharmacy' },
+  { name: 'بريماكين أقراص (Primaquine)', category: 'medication', origin: 'pharmacy' },
+  { name: 'دابسون أقراص (Dapsone)', category: 'medication', origin: 'pharmacy' },
+  { name: 'كرات النفتالين لحفظ الملابس', category: 'medication', origin: 'pharmacy' },
 ];
 
-// 3. Group 2: أكلات تحتاج لتصويت وتجارب مجتمعية (0 votes - is_confirmed_danger = 0)
+// 3. Group 2: أصناف مصرية وبدائل آمنة وتجارب مجتمعية (is_confirmed_danger = 0)
 const communityVoteItems = [
-  // مكسرات وبذور لا يوجد دليل قوي على منعها عموماً
+  // --- بدائل وأدوية آمنة معتمدة لمرضى أنيميا الفول بمصر ---
+  { name: 'سيتال شراب ونقط وأقراص (Cetal - باراسيتامول)', category: 'medication', origin: 'pharmacy' },
+  { name: 'بارامول أقراص وشراب (Paramol - باراسيتامول)', category: 'medication', origin: 'pharmacy' },
+  { name: 'باراسيتامول (Paracetamol)', category: 'medication', origin: 'pharmacy' },
+  { name: 'بروفين شراب (Brufen - إيبوبروفين بحذر)', category: 'medication', origin: 'pharmacy' },
+  { name: 'دولفين لبوس أطفال (Dolphin - ديكلوفيناك بحذر)', category: 'medication', origin: 'pharmacy' },
+
+  // --- تسالي ومكسرات مصرية مسموحة وآمنة ---
+  { name: 'اللب الأبيض (لب القرع المملح)', category: 'food', origin: 'supermarket' },
+  { name: 'اللب الأسمر (لب البطيخ البلدي)', category: 'food', origin: 'supermarket' },
+  { name: 'اللب السوري (بذور عباد الشمس)', category: 'food', origin: 'supermarket' },
+  { name: 'فشار الذرة والذرة المشوي', category: 'food', origin: 'supermarket' },
   { name: 'اللوز', category: 'food', origin: 'supermarket' },
+  { name: 'البندق', category: 'food', origin: 'supermarket' },
   { name: 'الكاجو', category: 'food', origin: 'supermarket' },
   { name: 'الفستق', category: 'food', origin: 'supermarket' },
-  { name: 'البندق', category: 'food', origin: 'supermarket' },
   { name: 'عين الجمل', category: 'food', origin: 'supermarket' },
-  { name: 'البذور اللبّية (لب أبيض ولب أسود)', category: 'food', origin: 'supermarket' },
-  // مصنعات لحوم
-  { name: 'اللانشون', category: 'food', origin: 'supermarket' },
-  { name: 'البسطرمة', category: 'food', origin: 'supermarket' },
-  { name: 'السجق', category: 'food', origin: 'supermarket' },
-  { name: 'الهوت دوج', category: 'food', origin: 'supermarket' },
-  { name: 'السلامي', category: 'food', origin: 'supermarket' },
-  { name: 'البيبروني', category: 'food', origin: 'restaurant' },
-  { name: 'اللحوم المدخنة', category: 'food', origin: 'supermarket' },
-  { name: 'اللحم المقدد (بيكون)', category: 'food', origin: 'supermarket' },
-  { name: 'اللحم المجفف', category: 'food', origin: 'supermarket' },
-  // منتجات ومنكهات أخرى
-  { name: 'زبدة الفول السوداني', category: 'food', origin: 'supermarket' },
-  { name: 'السمسم', category: 'food', origin: 'supermarket' },
-  { name: 'الطحينة', category: 'food', origin: 'supermarket' },
-  { name: 'الحلاوة الطحينية', category: 'food', origin: 'supermarket' },
-  // فواكه ومزروعات
+
+  // --- مصنعات وأطعمة مصرية شائعة تحت المراقبة والتصويت ---
+  { name: 'اللانشون البقري والدجاج', category: 'food', origin: 'supermarket' },
+  { name: 'البسطرمة البلدي', category: 'food', origin: 'supermarket' },
+  { name: 'السجق البلدي والشرقي', category: 'food', origin: 'supermarket' },
+  { name: 'الحلاوة الطحينية السادة', category: 'food', origin: 'supermarket' },
+  { name: 'الطحينة البيضاء والسمسم', category: 'food', origin: 'supermarket' },
+  { name: 'عصير القصب البلدي', category: 'food', origin: 'restaurant' },
   { name: 'التين الشوكي', category: 'food', origin: 'supermarket' },
-  { name: 'التوت', category: 'food', origin: 'supermarket' },
-  { name: 'البلح', category: 'food', origin: 'supermarket' },
-  { name: 'العجوة', category: 'food', origin: 'supermarket' },
-  { name: 'الذرة', category: 'food', origin: 'supermarket' },
-  // مواد كيميائية ومستحضرات خارجية تحتاج تصويت
-  { name: 'الحناء', category: 'medication', origin: 'pharmacy' },
-  { name: 'النفتالين', category: 'medication', origin: 'pharmacy' },
+  { name: 'البلح والعجوة', category: 'food', origin: 'supermarket' },
+  { name: 'الحناء الطبيعية للشعر واليدين', category: 'medication', origin: 'pharmacy' },
 ];
 
 const adminUser = db.prepare('SELECT id FROM users WHERE identifier = ?').get('admin@weqaya.org');
